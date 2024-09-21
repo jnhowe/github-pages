@@ -41,23 +41,17 @@ jobs:
           node-version: 20
           cache: 'npm'
           cache-dependency-path: 'github-pages/package-lock.json'
-      - name: Print working directory
-        env:
-          GITHUB_WORKSPACE: ${{ github.workspace }}
-        run: echo "Working directory is $GITHUB_WORKSPACE"
       - name: Install dependencies
         run: npm ci
-        working-directory: ./github-pages
       - name: Build
         run: npm run build
-        working-directory: /github-pages
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist folder
-          path: './github-pages/dist'
+          path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
