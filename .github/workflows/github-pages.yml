@@ -43,7 +43,7 @@ jobs:
           cache-dependency-path: 'github-pages/package-lock.json'
       - name: Install dependencies
         run: npm ci
-        working-directory: /github-pages
+        # working-directory: /github-pages
       - name: Build
         run: npm run build
         working-directory: /github-pages
