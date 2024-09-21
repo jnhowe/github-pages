@@ -41,20 +41,20 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-          cache-dependency-path: 'cai/client/package-lock.json'
+          cache-dependency-path: 'github-pages/package-lock.json'
       - name: Install dependencies
         run: npm ci
-        working-directory: ./cai/client
+        working-directory: ./github-pages
       - name: Build
         run: npm run build
-        working-directory: ./cai/client
+        working-directory: ./github-pages
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist folder
-          path: './cai/client/dist'
+          path: './github-pages/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
